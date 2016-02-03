@@ -1,0 +1,26 @@
+client
+	js
+		script.js (angular.model,
+				   .config,
+				   .factory('name', function($http)),
+				   .controller('name', function($scope, factory))
+	partials
+		customers.html
+	index.html (angular CDN,
+				angular-route CDN,
+				script.js,
+				ng-app,
+				ng-view)
+config
+	routes.js (require customers.js, module.exports = function(app){})
+	mongoose.js (require, .connect(db), models_path, fs.readdirSync...)
+server
+	models
+		customer.js(require mongoose, create schema, .model('name', schema))
+	controllers
+		customers.js(require mongoose, get model, module.exports(function(){ return{} })() )
+package.json
+	npm install body-parser --save
+	npm install express --save
+	npm install mongoose --save
+server.js (require, app.use, require config files, app.listen)
